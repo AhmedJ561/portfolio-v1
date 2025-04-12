@@ -80,8 +80,7 @@ const Projects = () => {
     hover: {
       y: -10,
       scale: 1.03,
-      boxShadow:
-        "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+      boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
       transition: {
         type: "spring",
         stiffness: 400,
@@ -108,12 +107,12 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="flex justify-center space-x-4 mb-12">
+        <div className="flex justify-center flex-wrap gap-4 mb-12">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-transform duration-300 ease-in-out transform ${
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-transform duration-300 ease-in-out ${
                 activeCategory === category.id
                   ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg hover:shadow-xl"
                   : "bg-gray-800 text-gray-300 hover:bg-gray-700"
@@ -144,9 +143,7 @@ const Projects = () => {
                   className="w-full h-full object-cover rounded-md transition-transform duration-500 hover:scale-110"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-purple-300">
-                {project.title}
-              </h3>
+              <h3 className="text-xl font-semibold mb-2 text-purple-300">{project.title}</h3>
               <p className="text-gray-400 mb-4">{project.description}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech, index) => (
@@ -160,7 +157,7 @@ const Projects = () => {
               </div>
               <button
                 onClick={() => openProjectModal(project)}
-                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out"
+                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 rounded-full shadow-md hover:shadow-lg transition-transform duration-300 ease-in-out"
               >
                 <FaEye className="mr-2 inline-block" /> View Details
               </button>
@@ -191,12 +188,8 @@ const Projects = () => {
                   />
                 </svg>
               </button>
-              <h2 className="text-2xl font-bold mb-2 text-purple-300">
-                {selectedProject.title}
-              </h2>
-              <p className="text-gray-400 mb-4">
-                {selectedProject.description}
-              </p>
+              <h2 className="text-2xl font-bold mb-2 text-purple-300">{selectedProject.title}</h2>
+              <p className="text-gray-400 mb-4">{selectedProject.description}</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <img
@@ -206,15 +199,9 @@ const Projects = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 text-purple-300">
-                    About this project
-                  </h3>
-                  <p className="text-gray-400 mb-4">
-                    {selectedProject.longDescription}
-                  </p>
-                  <h3 className="text-lg font-semibold mb-2 text-purple-300">
-                    Technologies
-                  </h3>
+                  <h3 className="text-lg font-semibold mb-2 text-purple-300">About this project</h3>
+                  <p className="text-gray-400 mb-4">{selectedProject.longDescription}</p>
+                  <h3 className="text-lg font-semibold mb-2 text-purple-300">Technologies</h3>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {selectedProject.technologies.map((tech, index) => (
                       <span
@@ -227,9 +214,7 @@ const Projects = () => {
                   </div>
                   {selectedProject.features && (
                     <>
-                      <h3 className="text-lg font-semibold mb-2 text-purple-300">
-                        Key Features
-                      </h3>
+                      <h3 className="text-lg font-semibold mb-2 text-purple-300">Key Features</h3>
                       <ul className="list-disc pl-5 text-gray-400">
                         {selectedProject.features.map((feature, index) => (
                           <li key={index}>{feature}</li>
@@ -245,10 +230,9 @@ const Projects = () => {
                     href={selectedProject.demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 rounded-full shadow-md text-center hover:shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out"
+                    className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 rounded-full shadow-md text-center hover:shadow-lg transition-transform duration-300 ease-in-out"
                   >
-                    <FaExternalLinkAlt className="mr-2 inline-block" /> Live
-                    Demo
+                    <FaExternalLinkAlt className="mr-2 inline-block" /> Live Demo
                   </a>
                 )}
                 {selectedProject.githubUrl && (
@@ -256,14 +240,14 @@ const Projects = () => {
                     href={selectedProject.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-gray-700 text-white py-2 rounded-full shadow-md text-center hover:bg-gray-600 hover:shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out"
+                    className="flex-1 bg-gray-700 text-white py-2 rounded-full shadow-md text-center hover:bg-gray-600 hover:shadow-lg transition-transform duration-300 ease-in-out"
                   >
                     <FaGithub className="mr-2 inline-block" /> View Code
                   </a>
                 )}
                 <button
                   onClick={closeProjectModal}
-                  className="flex-1 bg-gray-600 text-white py-2 rounded-full shadow-md hover:bg-gray-500 hover:shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out"
+                  className="flex-1 bg-gray-600 text-white py-2 rounded-full shadow-md hover:bg-gray-500 hover:shadow-lg transition-transform duration-300 ease-in-out"
                 >
                   Close
                 </button>
