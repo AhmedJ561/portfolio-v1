@@ -1,5 +1,3 @@
-import React from "react";
-
 const Navbar = () => {
   const playClickSound = () => {
     const audio = new Audio(`${import.meta.env.BASE_URL}click.mp3`); // Adjust the path as necessary
