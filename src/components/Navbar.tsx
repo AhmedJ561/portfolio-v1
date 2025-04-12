@@ -17,7 +17,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <div className="text-2xl font-bold text-white">Portfolio</div>
         <div className="hidden md:flex space-x-6 text-lg font-medium">
-          {["home", "about", "skills", "services", "project", "contact"].map(
+          {["home", "about", "skills", "services", "projects", "contact"].map(
             (section) => (
               <a
                 key={section}

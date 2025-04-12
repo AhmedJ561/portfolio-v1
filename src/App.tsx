@@ -63,7 +63,7 @@ const App: React.FC = () => {
         </section>
 
         {/* Projects Section */}
-        <section id="project" className="p-8 section-scroll-animation">
+        <section id="projects" className="p-8 section-scroll-animation">
           <Projects />
         </section>
 
