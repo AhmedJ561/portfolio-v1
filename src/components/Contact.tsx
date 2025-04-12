@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import {
   FaLinkedin,
@@ -6,6 +7,9 @@ import {
   FaPhoneAlt,
   FaDownload,
 } from "react-icons/fa";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const containerVariants = {
@@ -30,8 +34,43 @@ const Contact = () => {
     },
   };
 
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      subject: e.target.subject.value,
+      message: e.target.message.value,
+    };
+
+    try {
+      const response = await axios.post(
+        "https://email-server-kappa.vercel.app/send-email",
+        formData
+      );
+      if (response.status === 200) {
+        toast.success("Email sent successfully!");
+      } else {
+        toast.error("Failed to send email.");
+      }
+    } catch (error) {
+      toast.error("Error sending email.");
+    }
+  };
+
   return (
     <div className="w-full min-h-screen p-4 md:p-8 flex flex-col items-center justify-center bg-background">
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <motion.div
         className="w-full max-w-6xl"
         variants={containerVariants}
@@ -52,7 +91,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <motion.div variants={itemVariants} className="lg:col-span-2">
             <div className="backdrop-blur-md bg-card/30 border border-purple-500/20 shadow-xl p-6 rounded-lg">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium">
@@ -60,8 +99,10 @@ const Contact = () => {
                     </label>
                     <input
                       id="name"
+                      name="name"
                       placeholder="Your Name"
                       className="w-full p-2 border border-purple-500/30 focus:border-purple-500 rounded-md bg-background/50"
+                      required
                     />
                   </div>
                   <div className="space-y-2">
@@ -70,9 +111,11 @@ const Contact = () => {
                     </label>
                     <input
                       id="email"
+                      name="email"
                       type="email"
                       placeholder="your.email@example.com"
                       className="w-full p-2 border border-purple-500/30 focus:border-purple-500 rounded-md bg-background/50"
+                      required
                     />
                   </div>
                 </div>
@@ -82,8 +125,10 @@ const Contact = () => {
                   </label>
                   <input
                     id="subject"
+                    name="subject"
                     placeholder="What's this about?"
                     className="w-full p-2 border border-purple-500/30 focus:border-purple-500 rounded-md bg-background/50"
+                    required
                   />
                 </div>
                 <div className="space-y-2">
@@ -92,9 +137,11 @@ const Contact = () => {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     placeholder="Your message here..."
                     rows={6}
                     className="w-full p-2 border border-purple-500/30 focus:border-purple-500 rounded-md bg-background/50 resize-none"
+                    required
                   />
                 </div>
                 <button
@@ -147,7 +194,7 @@ const Contact = () => {
               <div className="space-y-6">
                 <a
                   href={`${import.meta.env.BASE_URL}resume.pdf`}
-                  download="/AhmedJamil_Resume.pdf"
+                  download="AhmedJamil_Resume.pdf"
                   className="w-full border border-purple-500/30 hover:bg-purple-500/10 hover:border-purple-500/50 text-purple-500 hover:text-white font-medium py-2 px-4 rounded-md transition-all duration-300 flex items-center justify-center"
                 >
                   <FaDownload className="mr-2" />

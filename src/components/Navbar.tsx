@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const playClickSound = () => {
     const audio = new Audio(`${import.meta.env.BASE_URL}click.mp3`); // Adjust the path as necessary
     audio.play();
@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
               <a
                 key={section}
                 href={`#${section}`}
-                className="text-primary hover:text transition duration-200 capitalize"
+                className="text-primary hover:text-purple-400 transition duration-200 capitalize"
                 onClick={playClickSound}
               >
                 {section}
