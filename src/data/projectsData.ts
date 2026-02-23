@@ -1,5 +1,6 @@
 import { Project } from "../types/Project";
 import chatflowImage from "../assets/chatflow.png";
+import skillsenseImage from "../assets/skillsense.png";
 import noteImage from "../assets/note.png"; // Import the note image
 import weatherImage from "../assets/weather.png"; // Import the weather image
 
@@ -34,6 +35,16 @@ export const projects: Project[] = [
     description: "Weather App using open weather API",
     technologies: ["Flutter", "Open Weather API"],
   },
+  {
+    id: "4",
+    title: "SkillSense",
+    category: "web",
+    image: `${skillsenseImage}`,
+    githubUrl: "https://github.com/AhmedJ561/skilsense-front",
+    demoUrl: "https://skilsense-front.vercel.app",
+    description: "Ai based platform that make it easier for company to recruit candidates",
+    technologies: ["Next JS", "MUI", "Nest JS", "MongoDB"],
+  }
   // Add more projects as needed
 ];
 
