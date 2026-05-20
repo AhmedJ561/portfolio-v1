@@ -21,7 +21,6 @@ const App: React.FC = () => {
         const isVisible =
           triggerPoint > sectionTop && window.scrollY < sectionBottom;
 
-        // Add "active" and "slide-in-from-right" when visible, but don't remove them after
         if (isVisible) {
           section.classList.add("active", "slide-in-from-right");
         } else if (!section.classList.contains("active")) {
