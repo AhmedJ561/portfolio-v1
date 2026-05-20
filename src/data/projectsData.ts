@@ -3,7 +3,7 @@ import chatflowImage from "../assets/chatflow.png";
 import skillsenseImage from "../assets/skillsense.png";
 import noteImage from "../assets/note.png"; // Import the note image
 import weatherImage from "../assets/weather.png"; // Import the weather image
-
+import urlshort from "../assets/urlshort.png"; // Import the URL shortener image
 export const projects: Project[] = [
   {
     id: "1",
@@ -42,9 +42,20 @@ export const projects: Project[] = [
     image: `${skillsenseImage}`,
     githubUrl: "https://github.com/AhmedJ561/skilsense-front",
     demoUrl: "https://skilsense-front.vercel.app",
-    description: "Ai based platform that make it easier for company to recruit candidates",
+    description:
+      "Ai based platform that make it easier for company to recruit candidates",
     technologies: ["Next JS", "MUI", "Nest JS", "MongoDB"],
-  }
+  },
+  {
+    id: "5",
+    title: "URL Shortner",
+    category: "web",
+    image: `${urlshort}`,
+    githubUrl: "https://github.com/AhmedJ561/shorturl_client",
+    demoUrl: "https://ahmedj561.github.io/shorturl_client",
+    description: "Basic URL shortener project using MERN stack",
+    technologies: ["React", "Node JS", "Express", "MongoDB"],
+  },
   // Add more projects as needed
 ];
 
