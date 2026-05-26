@@ -1,6 +1,6 @@
 import { Project } from "../types/Project";
 import chatflowImage from "../assets/chatflow.png";
-import skillsenseImage from "../assets/skillsense.png";
+import skillsenseImage from "../assets/skillSense.png";
 import noteImage from "../assets/note.png"; // Import the note image
 import weatherImage from "../assets/weather.png"; // Import the weather image
 import urlshort from "../assets/urlshort.png"; // Import the URL shortener image
