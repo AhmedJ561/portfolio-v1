@@ -1,0 +1,23 @@
+name: automate-build-deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Setup Node js
+        uses:  actions/setup-node@v6.4.0
+        with:
+           node-version: 22.X
+      - name: Install Dependencies
+        run: npm install
+      - name: Build React App
+        run: npm run build
+      - name : Deploy Script
+        run: npm run deploy
+        
