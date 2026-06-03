@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-900 shadow-md fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        <div className="text-2xl font-bold text-white">PORTFOLIO</div>
+        <div className="text-2xl font-bold text-white">My PORTFOLIO</div>
         <div className="hidden md:flex space-x-6 text-lg font-medium">
           {["home", "about", "skills", "services", "projects", "contact"].map(
             (section) => (
