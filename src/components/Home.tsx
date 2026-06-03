@@ -104,9 +104,8 @@ const Home = () => {
             className="text-gray-300 max-w-xl mb-8 leading-relaxed"
             variants={itemVariants}
           >
-            Enthusiastic BSSE student with a passion for web development, game
-            development, and Android app development. Skilled in Blender, Canva,
-            Photoshop, and eager to explore emerging technologies.
+            Enthusiastic BSSE graduate with a passion for web development and
+            Android app development, currently exploring DevOps.
           </motion.p>
           <motion.div
             className="flex flex-wrap gap-4 justify-center md:justify-start"
