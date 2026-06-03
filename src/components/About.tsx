@@ -41,13 +41,20 @@ const About = () => {
           variants={itemVariants}
           className="section-paragraph max-w-2xl mx-auto text-gray-300"
         >
-          I am Ahmed Jamil, a driven BSSE (Bachelor of Science in Software Engineering) student currently in the 6th semester at ARID University. I have a strong foundation in web development and am eager to expand my knowledge in game development, Android app development, and other emerging technologies.
+          Results-driven BSSE graduate specializing in Flutter and
+          cross-platform mobile application development. Skilled in building
+          responsive, user-friendly, and scalable mobile applications using
+          Flutter and Dart.
         </motion.p>
         <motion.p
           variants={itemVariants}
           className="section-paragraph max-w-2xl mx-auto mt-4 text-gray-300"
         >
-          My skills include Blender, Web Development (MERN Stack), Flutter, Android Development, Canva, Ibis Paint, SketchUp, Adobe Photoshop, ASP.NET, Filmora, Capcut, and programming languages such as C++, C#, Java, Python, and Dart.
+          Strong understanding of Firebase, REST APIs, state management and
+          authentication. Additional experience with Next.js, NestJS, MERN
+          stack, and full-stack web development. Passionate about continuous
+          learning, problem-solving, and developing real-world software
+          solutions.
         </motion.p>
       </motion.div>
     </div>
