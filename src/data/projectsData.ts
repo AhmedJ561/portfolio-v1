@@ -3,7 +3,8 @@ import chatflowImage from "../assets/chatflow.png";
 import skillsenseImage from "../assets/skillSense.png";
 import noteImage from "../assets/note.png"; // Import the note image
 import weatherImage from "../assets/weather.png"; // Import the weather image
-import urlshort from "../assets/urlshort.png"; // Import the URL shortener image
+import urlshort from "../assets/urlshort.png";
+import weatherweb from "../assets/weatherweb.png"; // Import the URL shortener image
 export const projects: Project[] = [
   {
     id: "1",
@@ -55,6 +56,16 @@ export const projects: Project[] = [
     demoUrl: "https://ahmedj561.github.io/shorturl_client",
     description: "Basic URL shortener project using MERN stack",
     technologies: ["React", "Node JS", "Express", "MongoDB"],
+  },
+  {
+    id: "5",
+    title: "Weather Web App",
+    category: "web",
+    image: `${weatherweb}`,
+    githubUrl: "https://github.com/AhmedJ561/weather-web-nextjs/",
+    demoUrl: "https://weather-web-nextjs.vercel.app",
+    description: "Next10 weather app using open weather API",
+    technologies: ["Next JS", "Open Weather API"],
   },
   // Add more projects as needed
 ];
