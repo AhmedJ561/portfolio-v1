@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaLinkedin,
@@ -5,12 +6,18 @@ import {
   FaEnvelope,
   FaPhoneAlt,
   FaDownload,
+  FaPaperPlane,
+  FaSpinner,
 } from "react-icons/fa";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "https://portfolio-email-server-seven.vercel.app";
+
 const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -33,27 +40,38 @@ const Contact = () => {
     },
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
+    const form = e.currentTarget;
     const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      subject: (form.elements.namedItem("subject") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
     };
 
+    setIsSubmitting(true);
+
     try {
-      const response = await axios.post(
-        "https://email-server-kappa.vercel.app/send-email",
-        formData
-      );
+      const response = await axios.post(`${BACKEND_URL}/send-email`, formData);
       if (response.status === 200) {
-        toast.success("Email sent successfully!");
+        toast.success(
+          "✅ Message sent! Check your inbox — a confirmation email is on its way.",
+          { autoClose: 5000 }
+        );
+        form.reset();
       } else {
-        toast.error("Failed to send email.");
+        toast.error("❌ Failed to send message. Please try again.");
       }
     } catch (error) {
-      toast.error("Error sending email.");
+      toast.error(
+        "❌ Could not reach the email server. Make sure the backend is running on port 5000.",
+        { autoClose: 6000 }
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -145,10 +163,21 @@ const Contact = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full font-bold py-2.5 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02]"
-                  style={{ background: 'linear-gradient(135deg, #c9a84c, #f0c860, #a07830)', color: '#0a0a10', boxShadow: '0 4px 20px rgba(201,168,76,0.3)' }}  >
-                  <FaEnvelope className="mr-2 inline-block" />
-                  Send Message
+                  disabled={isSubmitting}
+                  className="w-full font-bold py-2.5 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  style={{ background: 'linear-gradient(135deg, #c9a84c, #f0c860, #a07830)', color: '#0a0a10', boxShadow: '0 4px 20px rgba(201,168,76,0.3)' }}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <FaSpinner className="animate-spin" />
+                      Sending…
+                    </>
+                  ) : (
+                    <>
+                      <FaPaperPlane />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             </div>
