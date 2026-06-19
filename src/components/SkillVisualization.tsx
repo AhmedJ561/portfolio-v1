@@ -64,8 +64,15 @@ const skillCategories: SkillCategory[] = [
 
 
 const SkillBar = ({ level }: { level: number }) => (
-  <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
-    <div className={`h-full bg-purple-500`} style={{ width: `${level}%` }} />
+  <div className="w-full h-2 rounded-full overflow-hidden" style={{ background: 'rgba(201,168,76,0.15)' }}>
+    <div
+      className="h-full rounded-full"
+      style={{
+        width: `${level}%`,
+        background: 'linear-gradient(90deg, #a07830, #c9a84c, #f0c860)',
+        boxShadow: '0 0 8px rgba(201,168,76,0.4)',
+      }}
+    />
   </div>
 );
 
@@ -80,7 +87,7 @@ const SkillCircle = ({ level }: { level: number }) => {
         cx="50"
         cy="50"
         r={radius}
-        stroke="#4B5563"
+        stroke="rgba(201,168,76,0.2)"
         strokeWidth="5"
         fill="none"
       />
@@ -88,12 +95,19 @@ const SkillCircle = ({ level }: { level: number }) => {
         cx="50"
         cy="50"
         r={radius}
-        stroke="#8B5CF6"
+        stroke="url(#goldGrad)"
         strokeWidth="5"
         strokeDasharray={circumference}
         strokeDashoffset={offset}
         fill="none"
       />
+      <defs>
+        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#a07830" />
+          <stop offset="50%" stopColor="#f0c860" />
+          <stop offset="100%" stopColor="#c9a84c" />
+        </linearGradient>
+      </defs>
     </svg>
   );
 };
@@ -105,35 +119,52 @@ const SkillsVisualization = () => {
   return (
     <div
       id="skills-section"
-      className="w-full min-h-screen bg-black/10 p-8 flex flex-col items-center"
+      className="w-full min-h-screen p-8 flex flex-col items-center"
+      style={{ background: 'linear-gradient(180deg, #12121a 0%, #0f0f17 100%)' }}
     >
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">
+        <h2 className="text-4xl font-bold section-heading">
           Skills & Expertise
         </h2>
-        <p className="text-gray-300 max-w-2xl mx-auto mt-2">
+        <p style={{ color: '#9a9ab0' }} className="max-w-2xl mx-auto mt-2">
           Visual overview of my experience and toolset — hover for more info.
         </p>
 
         <div className="flex justify-center gap-4 mt-6">
           <button
             onClick={() => setVisualizationType("bars")}
-            className={`px-4 py-2 rounded-md flex items-center gap-2 transition ${
+            className={`px-4 py-2 rounded-md flex items-center gap-2 transition font-semibold ${
               visualizationType === "bars"
-                ? "bg-purple-600 text-white"
-                : "bg-gray-800 text-gray-300"
+                ? "text-black"
+                : ""
             }`}
+            style={visualizationType === "bars" ? {
+              background: 'linear-gradient(135deg, #c9a84c, #f0c860)',
+              boxShadow: '0 2px 12px rgba(201,168,76,0.35)',
+            } : {
+              background: 'rgba(201,168,76,0.08)',
+              border: '1px solid rgba(201,168,76,0.2)',
+              color: '#9a9ab0',
+            }}
           >
             <BarChart2 className="w-4 h-4" />
             Bar View
           </button>
           <button
             onClick={() => setVisualizationType("radar")}
-            className={`px-4 py-2 rounded-md flex items-center gap-2 transition ${
+            className={`px-4 py-2 rounded-md flex items-center gap-2 transition font-semibold ${
               visualizationType === "radar"
-                ? "bg-purple-600 text-white"
-                : "bg-gray-800 text-gray-300"
+                ? "text-black"
+                : ""
             }`}
+            style={visualizationType === "radar" ? {
+              background: 'linear-gradient(135deg, #c9a84c, #f0c860)',
+              boxShadow: '0 2px 12px rgba(201,168,76,0.35)',
+            } : {
+              background: 'rgba(201,168,76,0.08)',
+              border: '1px solid rgba(201,168,76,0.2)',
+              color: '#9a9ab0',
+            }}
           >
             <PieChart className="w-4 h-4" />
             Radar View
@@ -147,11 +178,19 @@ const SkillsVisualization = () => {
             <button
               key={category.name}
               onClick={() => setActiveTab(category.name)}
-              className={`capitalize text-sm py-2 rounded-md ${
+              className={`capitalize text-sm py-2 rounded-md font-semibold transition-all ${
                 activeTab === category.name
-                  ? "bg-purple-600 text-white"
-                  : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                  ? "text-black"
+                  : ""
               }`}
+              style={activeTab === category.name ? {
+                background: 'linear-gradient(135deg, #c9a84c, #f0c860)',
+                boxShadow: '0 2px 12px rgba(201,168,76,0.3)',
+              } : {
+                background: 'rgba(201,168,76,0.07)',
+                border: '1px solid rgba(201,168,76,0.2)',
+                color: '#9a9ab0',
+              }}
             >
               {category.name === "web"
                 ? "Web Dev"
@@ -169,20 +208,21 @@ const SkillsVisualization = () => {
               {category.skills.map((skill) => (
                 <div
                   key={skill.name}
-                  className="bg-white/5 p-6 rounded-lg shadow-md hover:shadow-purple-400/10 transition relative group"
+                  className="p-5 rounded-xl shadow-md transition-all relative group"
+                  style={{ background: 'linear-gradient(135deg, #16161f 0%, #1c1c28 100%)', border: '1px solid rgba(201,168,76,0.18)', boxShadow: '0 4px 20px rgba(0,0,0,0.4)' }}
                 >
                   <div className="flex justify-between items-center mb-3">
                     <div>
-                      <h3 className="text-white font-semibold">{skill.name}</h3>
-                      <p className="text-sm text-gray-400">
+                      <h3 className="font-semibold" style={{ color: '#e8e8f0' }}>{skill.name}</h3>
+                      <p className="text-sm" style={{ color: '#6a6a80' }}>
                         {skill.years} {skill.years > 1 ? "years" : "year"}
                       </p>
                     </div>
                     <div className="relative">
                       <Info className="w-4 h-4 text-gray-400 group-hover:text-white" />
-                      <div className="absolute left-full ml-4 w-64 p-4 rounded bg-black/80 text-white shadow-xl hidden group-hover:block z-10">
-                        <h4 className="font-medium">{skill.name}</h4>
-                        <p className="text-sm text-gray-300 mt-1">
+                      <div className="absolute left-full ml-4 w-64 p-4 rounded-xl hidden group-hover:block z-10" style={{ background: 'rgba(16,16,24,0.95)', border: '1px solid rgba(201,168,76,0.3)', boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}>
+                        <h4 className="font-semibold" style={{ color: '#c9a84c' }}>{skill.name}</h4>
+                        <p className="text-sm mt-1" style={{ color: '#9a9ab0' }}>
                           {skill.description}
                         </p>
                       </div>
@@ -202,7 +242,7 @@ const SkillsVisualization = () => {
           ))}
       </div>
 
-      <p className="mt-12 text-gray-400 text-sm italic text-center">
+      <p className="mt-12 text-sm italic text-center" style={{ color: '#6a6a80' }}>
         Learning and evolving every step of the way ✨
       </p>
     </div>

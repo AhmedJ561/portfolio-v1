@@ -58,7 +58,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="w-full min-h-screen p-4 md:p-8 flex flex-col items-center justify-center bg-background">
+    <div className="w-full min-h-screen p-4 md:p-8 flex flex-col items-center justify-center" style={{ background: 'linear-gradient(180deg, #0f0f17 0%, #12121a 100%)' }}>
       <ToastContainer
         position="top-right"
         autoClose={3000}
@@ -78,10 +78,10 @@ const Contact = () => {
         viewport={{ once: true, amount: 0.2 }}
       >
         <motion.div variants={itemVariants} className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500 mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 section-heading">
             Get In Touch
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p style={{ color: '#9a9ab0' }} className="max-w-2xl mx-auto">
             Feel free to reach out for collaborations, opportunities, or just a
             friendly chat about technology and design.
           </p>
@@ -89,7 +89,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <motion.div variants={itemVariants} className="lg:col-span-2">
-            <div className="backdrop-blur-md bg-card/30 border border-purple-500/20 shadow-xl p-6 rounded-lg">
+            <div className="backdrop-blur-md p-6 rounded-xl" style={{ background: 'rgba(22,22,32,0.8)', border: '1px solid rgba(201,168,76,0.2)', boxShadow: '0 8px 40px rgba(0,0,0,0.5)' }}>
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -100,7 +100,7 @@ const Contact = () => {
                       id="name"
                       name="name"
                       placeholder="Your Name"
-                      className="w-full p-2 border border-purple-500/30 focus:border-purple-500 rounded-md bg-background/50"
+                      className="w-full p-2.5 rounded-lg outline-none transition-all" style={{ background: 'rgba(201,168,76,0.05)', border: '1px solid rgba(201,168,76,0.2)', color: '#e8e8f0' }}
                       required
                     />
                   </div>
@@ -113,7 +113,7 @@ const Contact = () => {
                       name="email"
                       type="email"
                       placeholder="your.email@example.com"
-                      className="w-full p-2 border border-purple-500/30 focus:border-purple-500 rounded-md bg-background/50"
+                      className="w-full p-2.5 rounded-lg outline-none transition-all" style={{ background: 'rgba(201,168,76,0.05)', border: '1px solid rgba(201,168,76,0.2)', color: '#e8e8f0' }}
                       required
                     />
                   </div>
@@ -126,7 +126,7 @@ const Contact = () => {
                     id="subject"
                     name="subject"
                     placeholder="What's this about?"
-                    className="w-full p-2 border border-purple-500/30 focus:border-purple-500 rounded-md bg-background/50"
+                    className="w-full p-2.5 rounded-lg outline-none transition-all" style={{ background: 'rgba(201,168,76,0.05)', border: '1px solid rgba(201,168,76,0.2)', color: '#e8e8f0' }}
                     required
                   />
                 </div>
@@ -139,14 +139,14 @@ const Contact = () => {
                     name="message"
                     placeholder="Your message here..."
                     rows={6}
-                    className="w-full p-2 border border-purple-500/30 focus:border-purple-500 rounded-md bg-background/50 resize-none"
+                  className="w-full p-2.5 rounded-lg outline-none resize-none transition-all" style={{ background: 'rgba(201,168,76,0.05)', border: '1px solid rgba(201,168,76,0.2)', color: '#e8e8f0' }}
                     required
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-medium py-2 px-4 rounded-md transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
-                >
+                  className="w-full font-bold py-2.5 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02]"
+                  style={{ background: 'linear-gradient(135deg, #c9a84c, #f0c860, #a07830)', color: '#0a0a10', boxShadow: '0 4px 20px rgba(201,168,76,0.3)' }}  >
                   <FaEnvelope className="mr-2 inline-block" />
                   Send Message
                 </button>
@@ -155,19 +155,19 @@ const Contact = () => {
           </motion.div>
 
           <motion.div variants={itemVariants} className="lg:col-span-1">
-            <div className="backdrop-blur-md bg-card/30 border border-purple-500/20 shadow-xl p-6 rounded-lg h-full flex flex-col">
+            <div className="backdrop-blur-md p-6 rounded-xl h-full flex flex-col" style={{ background: 'rgba(22,22,32,0.8)', border: '1px solid rgba(201,168,76,0.2)', boxShadow: '0 8px 40px rgba(0,0,0,0.5)' }}>
               <h3 className="text-xl font-semibold mb-6 text-center">
                 Contact Information
               </h3>
 
               <div className="space-y-6 flex-grow">
                 <div className="flex items-start">
-                  <FaEnvelope className="h-5 w-5 text-purple-500 mr-3 mt-0.5" />
+                  <FaEnvelope className="h-5 w-5 mr-3 mt-0.5" style={{ color: '#c9a84c' }} />
                   <div>
                     <p className="font-medium">Email</p>
                     <a
                       href="mailto:ahmedjamil561@gmail.com"
-                      className="text-muted-foreground hover:text-purple-400 transition-colors"
+                      className="hover:text-yellow-400 transition-colors" style={{ color: '#9a9ab0' }}
                     >
                       ahmedjamil561@gmail.com
                     </a>
@@ -175,12 +175,12 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start">
-                  <FaPhoneAlt className="h-5 w-5 text-purple-500 mr-3 mt-0.5" />
+                  <FaPhoneAlt className="h-5 w-5 mr-3 mt-0.5" style={{ color: '#c9a84c' }} />
                   <div>
                     <p className="font-medium">Phone</p>
                     <a
                       href="tel:+92336-9266-340"
-                      className="text-muted-foreground hover:text-purple-400 transition-colors"
+                      className="hover:text-yellow-400 transition-colors" style={{ color: '#9a9ab0' }}
                     >
                       +92336-9266-340
                     </a>
@@ -188,13 +188,14 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="border-t border-purple-500/20 my-6" />
+              <div className="border-t my-6" style={{ borderColor: 'rgba(201,168,76,0.15)' }} />
 
               <div className="space-y-6">
                 <a
                   href={`${import.meta.env.BASE_URL}resume.pdf`}
-                  download="AhmedJamil_Resume.pdf"
-                  className="w-full border border-purple-500/30 hover:bg-purple-500/10 hover:border-purple-500/50 text-purple-500 hover:text-white font-medium py-2 px-4 rounded-md transition-all duration-300 flex items-center justify-center"
+                  download="Ahmed_Jamil_Software_Engineer_CV.pdf"
+                  className="w-full font-semibold py-2 px-4 rounded-lg flex items-center justify-center transition-all duration-300"
+                  style={{ border: '1px solid rgba(201,168,76,0.4)', color: '#c9a84c', background: 'rgba(201,168,76,0.06)' }}
                 >
                   <FaDownload className="mr-2" />
                   Download Resume
@@ -205,23 +206,26 @@ const Contact = () => {
                     href="https://www.linkedin.com/in/ahmed-jamil-a30975280/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full bg-background/50 border border-purple-500/30 hover:bg-purple-500/20 transition-all duration-300"
+                    className="p-2 rounded-full transition-all duration-300"
+                    style={{ background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.25)' }}
                   >
-                    <FaLinkedin className="h-5 w-5 text-purple-500" />
+                    <FaLinkedin className="h-5 w-5" style={{ color: '#c9a84c' }} />
                   </a>
                   <a
                     href="https://github.com/AhmedJ561"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full bg-background/50 border border-purple-500/30 hover:bg-purple-500/20 transition-all duration-300"
+                    className="p-2 rounded-full transition-all duration-300"
+                    style={{ background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.25)' }}
                   >
-                    <FaGithub className="h-5 w-5 text-purple-500" />
+                    <FaGithub className="h-5 w-5" style={{ color: '#c9a84c' }} />
                   </a>
                   <a
                     href="mailto:ahmedjamil561@gmail.com"
-                    className="p-2 rounded-full bg-background/50 border border-purple-500/30 hover:bg-purple-500/20 transition-all duration-300"
+                    className="p-2 rounded-full transition-all duration-300"
+                    style={{ background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.25)' }}
                   >
-                    <FaEnvelope className="h-5 w-5 text-purple-500" />
+                    <FaEnvelope className="h-5 w-5" style={{ color: '#c9a84c' }} />
                   </a>
                 </div>
               </div>

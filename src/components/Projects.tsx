@@ -34,7 +34,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-900 text-white py-16 px-4 md:px-8">
+    <div className="w-full min-h-screen py-16 px-4 md:px-8" style={{ background: '#12121a' }}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -42,10 +42,10 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-purple-400 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 section-heading">
             Project Showcase
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p style={{ color: '#9a9ab0' }} className="max-w-2xl mx-auto">
             Explore my latest projects showcasing my skills in web development,
             mobile apps, game design, and more.
           </p>

@@ -33,13 +33,13 @@ const About = () => {
       >
         <motion.h1
           variants={itemVariants}
-          className="section-heading text-4xl md:text-5xl font-extrabold tracking-wide mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600"
+          className="section-heading text-4xl md:text-5xl font-extrabold tracking-wide mb-4"
         >
           About Me
         </motion.h1>
         <motion.p
           variants={itemVariants}
-          className="section-paragraph max-w-2xl mx-auto text-gray-300"
+          className="section-paragraph max-w-2xl mx-auto" style={{ color: '#9a9ab0' }}
         >
           Results-driven BSSE graduate specializing in Flutter and
           cross-platform mobile application development. Skilled in building

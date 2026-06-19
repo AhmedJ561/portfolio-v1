@@ -10,10 +10,11 @@ interface ProjectModalProps {
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-80">
-      <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-4xl mx-4 md:mx-auto relative">
+      <div className="p-8 rounded-2xl shadow-2xl w-full max-w-4xl mx-4 md:mx-auto relative" style={{ background: 'linear-gradient(135deg, #16161f, #1c1c2a)', border: '1px solid rgba(201,168,76,0.25)', boxShadow: '0 20px 60px rgba(0,0,0,0.7)' }}>
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-200"
+          style={{ color: '#9a9ab0' }}
+          className="absolute top-4 right-4 hover:text-yellow-400 transition-colors"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -30,10 +31,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             />
           </svg>
         </button>
-        <h2 className="text-2xl font-bold mb-2 text-purple-300">
+        <h2 className="text-2xl font-bold mb-2" style={{ color: '#c9a84c' }}>
           {project.title}
         </h2>
-        <p className="text-gray-400 mb-4">{project.description}</p>
+        <p className="mb-4" style={{ color: '#9a9ab0' }}>{project.description}</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
             <img
@@ -43,18 +44,19 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             />
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-2 text-purple-300">
+             <h3 className="text-lg font-semibold mb-2" style={{ color: '#c9a84c' }}>
               About this project
             </h3>
-            <p className="text-gray-400 mb-4">{project.longDescription}</p>
-            <h3 className="text-lg font-semibold mb-2 text-purple-300">
+             <p className="mb-4" style={{ color: '#9a9ab0' }}>{project.longDescription}</p>
+             <h3 className="text-lg font-semibold mb-2" style={{ color: '#c9a84c' }}>
               Technologies
             </h3>
             <div className="flex flex-wrap gap-2 mb-4">
               {project.technologies.map((tech: any, index: any) => (
                 <span
                   key={index}
-                  className="bg-gray-700 text-gray-200 text-sm font-medium px-3 py-1 rounded-full"
+                  className="text-sm font-medium px-3 py-1 rounded-full"
+                  style={{ background: 'rgba(201,168,76,0.12)', color: '#c9a84c', border: '1px solid rgba(201,168,76,0.25)' }}
                 >
                   {tech}
                 </span>
@@ -62,10 +64,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             </div>
             {project.features && (
               <>
-                <h3 className="text-lg font-semibold mb-2 text-purple-300">
+                 <h3 className="text-lg font-semibold mb-2" style={{ color: '#c9a84c' }}>
                   Key Features
                 </h3>
-                <ul className="list-disc pl-5 text-gray-400">
+                <ul className="list-disc pl-5" style={{ color: '#9a9ab0' }}>
                   {project.features.map((feature: any, index: any) => (
                     <li key={index}>{feature}</li>
                   ))}
@@ -80,7 +82,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 rounded-full shadow-md text-center hover:shadow-lg transition-transform duration-300 ease-in-out"
+              className="flex-1 font-bold py-2 rounded-full shadow-md text-center transition-all duration-300 hover:scale-[1.03]"
+              style={{ background: 'linear-gradient(135deg, #c9a84c, #f0c860, #a07830)', color: '#0a0a10', boxShadow: '0 4px 16px rgba(201,168,76,0.3)' }}
             >
               <FaExternalLinkAlt className="mr-2 inline-block" /> Live Demo
             </a>
@@ -90,14 +93,16 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-gray-700 text-white py-2 rounded-full shadow-md text-center hover:bg-gray-600 hover:shadow-lg transition-transform duration-300 ease-in-out"
+              className="flex-1 py-2 rounded-full shadow-md text-center transition-all duration-300 hover:scale-[1.02]"
+              style={{ background: 'rgba(201,168,76,0.08)', border: '1px solid rgba(201,168,76,0.25)', color: '#b8bec7' }}
             >
               <FaGithub className="mr-2 inline-block" /> View Code
             </a>
           )}
           <button
             onClick={onClose}
-            className="flex-1 bg-gray-600 text-white py-2 rounded-full shadow-md hover:bg-gray-500 hover:shadow-lg transition-transform duration-300 ease-in-out"
+            style={{ background: 'rgba(201,168,76,0.06)', border: '1px solid rgba(201,168,76,0.2)', color: '#9a9ab0' }}
+            className="flex-1 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-300 ease-in-out"
           >
             Close
           </button>

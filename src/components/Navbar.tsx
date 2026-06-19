@@ -13,16 +13,35 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-900 shadow-md fixed top-0 left-0 w-full z-50">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        <div className="text-2xl font-bold text-white">My PORTFOLIO</div>
-        <div className="hidden md:flex space-x-6 text-lg font-medium">
+    <nav style={{
+      background: 'linear-gradient(180deg, #0d0d14 0%, #12121a 100%)',
+      borderBottom: '1px solid rgba(201, 168, 76, 0.25)',
+      boxShadow: '0 4px 30px rgba(0,0,0,0.4), 0 1px 0 rgba(201, 168, 76, 0.1)',
+    }} className="fixed top-0 left-0 w-full z-50 backdrop-blur-md">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="text-2xl font-bold" style={{
+          background: 'linear-gradient(135deg, #c9a84c 0%, #f0c860 50%, #a07830 100%)',
+          WebkitBackgroundClip: 'text',
+          backgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          letterSpacing: '0.05em',
+        }}>MY PORTFOLIO</div>
+        <div className="hidden md:flex space-x-8 text-sm font-medium tracking-widest uppercase">
           {["home", "about", "skills", "services", "projects", "contact"].map(
             (section) => (
               <a
                 key={section}
                 href={`#${section}`}
-                className="text-purple-400 hover:text-purple-300 transition duration-200 capitalize"
+                style={{ color: '#b8bec7', transition: 'color 0.3s, text-shadow 0.3s' }}
+                className="hover:text-yellow-300 capitalize"
+                onMouseEnter={e => {
+                  (e.target as HTMLElement).style.color = '#f0c860';
+                  (e.target as HTMLElement).style.textShadow = '0 0 12px rgba(201,168,76,0.6)';
+                }}
+                onMouseLeave={e => {
+                  (e.target as HTMLElement).style.color = '#b8bec7';
+                  (e.target as HTMLElement).style.textShadow = 'none';
+                }}
                 onClick={playClickSound}
               >
                 {section}
@@ -33,7 +52,8 @@ const Navbar = () => {
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
-            className="text-white focus:outline-none"
+            style={{ color: '#c9a84c' }}
+            className="focus:outline-none"
           >
             <svg
               className="w-6 h-6"
@@ -53,14 +73,15 @@ const Navbar = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {["home", "about", "skills", "services", "project", "contact"].map(
+        <div className="md:hidden" style={{ background: '#0f0f17', borderTop: '1px solid rgba(201,168,76,0.15)' }}>
+          <div className="px-4 pt-2 pb-4 space-y-1">
+            {["home", "about", "skills", "services", "projects", "contact"].map(
               (section) => (
                 <a
                   key={section}
                   href={`#${section}`}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-purple-400 hover:text-purple-300 hover:bg-gray-700 transition duration-200"
+                  style={{ color: '#b8bec7', display: 'block' }}
+                  className="px-3 py-2 rounded-lg text-base font-medium capitalize hover:bg-yellow-900/20 transition duration-200"
                   onClick={() => {
                     playClickSound();
                     setIsOpen(false);

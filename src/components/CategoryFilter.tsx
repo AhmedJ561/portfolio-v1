@@ -18,11 +18,19 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ categories, activeCateg
         <button
           key={category.id}
           onClick={() => onCategoryChange(category.id)}
-          className={`px-6 py-2 rounded-full text-sm font-medium transition-transform duration-300 ease-in-out ${
+          className={`px-6 py-2 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 ease-in-out ${
             activeCategory === category.id
-              ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg hover:shadow-xl"
-              : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+              ? "text-black shadow-lg hover:shadow-xl"
+              : "hover:border-yellow-600/50"
           }`}
+          style={activeCategory === category.id ? {
+            background: 'linear-gradient(135deg, #c9a84c, #f0c860, #a07830)',
+            boxShadow: '0 4px 18px rgba(201,168,76,0.35)',
+          } : {
+            background: 'rgba(201,168,76,0.07)',
+            border: '1px solid rgba(201,168,76,0.25)',
+            color: '#b8bec7',
+          }}
         >
           {category.name}
         </button>

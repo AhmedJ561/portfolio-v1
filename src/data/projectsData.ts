@@ -59,12 +59,12 @@ export const projects: Project[] = [
   },
   {
     id: "5",
-    title: "Weather Web App",
+    title: "WeatherScope",
     category: "web",
     image: `${weatherweb}`,
     githubUrl: "https://github.com/AhmedJ561/weather-web-nextjs/",
     demoUrl: "https://weather-web-nextjs.vercel.app",
-    description: "Next10 weather app using open weather API",
+    description: "NextJS weather app using open weather API",
     technologies: ["Next JS", "Open Weather API"],
   },
   // Add more projects as needed
